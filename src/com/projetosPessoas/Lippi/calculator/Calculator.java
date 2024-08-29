@@ -1,4 +1,4 @@
-package com.projetosPessoas.Lippi;
+package com.projetosPessoas.Lippi.calculator;
 
 import javax.swing.*;
 import java.awt.*;
