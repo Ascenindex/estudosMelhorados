@@ -6,6 +6,6 @@ public class Calculadora {
      }
 
      public void subtraiaDoisNumeros() {
-          System.out.println(20 - 5);
+          System.out.println(20 - 5);   
      }
 }
