@@ -7,18 +7,28 @@ public class Banco {
   private boolean statusDaConta = false;
   private String tipoDaConta = null;
 
-  public Banco(String nome, Long cnpj, int numeroDaConta, double saldo, boolean statusDaConta, String tipoDaConta) {
+  public Banco(String nome, Long cnpj, int numeroDaConta, double saldo, boolean statusDaConta) {
     this.nome = nome;
     this.cnpj = cnpj;
     this.numeroDaConta = numeroDaConta;
     this.saldo = saldo;
     this.statusDaConta = statusDaConta;
-    this.tipoDaConta = tipoDaConta; // TODO manutenir tipo de conta CC ou CP
+  }
+
+  public Banco(String nome, Long cnpj, int numeroDaConta, double saldo, boolean statusDaConta, String tipoDaConta) {
+    this(nome, cnpj, numeroDaConta, saldo, statusDaConta);
+    this.tipoDaConta = tipoDaConta == null ? "CC" : tipoDaConta;
   }
 
   public void abrirConta() {
     if (statusDaConta) {
       System.out.println("Conta já está aberta!");
+      if (tipoDaConta.equals("CP")) {
+        System.out.println("Conta poupança não possui limite de saque!");
+      }else if (tipoDaConta.equals("CC")) {
+        System.out.println("Conta corrente não possui limite de saque!");
+      }
+      return;
     } else {
       setStatusDaConta(true);
       System.out.println("Conta aberta com sucesso!");
@@ -42,7 +52,7 @@ public class Banco {
 
   public void depositar(double valor) {
     if (!statusDaConta) {
-      System.out.println("Conta está fechada!");
+      System.out.println("Não é possível depositar em uma conta fechada!");
     } else if (valor <= 0) {
       System.out.println("Valor inválido para depósito!");
     } else {
@@ -78,6 +88,14 @@ public class Banco {
       contaDestino.setSaldo(contaDestino.getSaldo() + valor);
       System.out.println("Transferência realizada com sucesso! Valor atual: " + getSaldo());
       System.out.println("A " + contaDestino.getNome() + " agora tem " + contaDestino.getSaldo() + " reais");
+    }
+  }
+
+  public void verificarSaldo() {
+    if (!statusDaConta) {
+      System.out.println("Conta está fechada!");
+    } else {
+      System.out.println("Saldo atual: " + getSaldo());
     }
   }
 
