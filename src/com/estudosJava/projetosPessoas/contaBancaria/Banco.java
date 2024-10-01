@@ -61,7 +61,7 @@ public class Banco {
     }
   }
 
-  public void sacar(double valor) {
+  public boolean sacar(double valor) {
     if (!statusDaConta) {
       System.out.println("Conta está fechada!");
     } else if (valor <= 0) {
@@ -72,6 +72,7 @@ public class Banco {
       setSaldo(getSaldo() - valor);
       System.out.println("Saque realizado com sucesso! Valor atual: " + getSaldo());
     }
+    return statusDaConta;
   }
 
   public void transferir(double valor, Banco contaDestino) {
