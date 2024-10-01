@@ -7,6 +7,7 @@ public class Anime {
      private String genero;
      private String estudio;
      private String personPrincipal;
+     private String antagonista;
 
 
      public Anime(String nome, String tipo, int episodios, String genero) {
@@ -25,6 +26,12 @@ public class Anime {
           this(nome, tipo, episodios, genero, estudio);
           this.personPrincipal = personPrincipal;
      }
+
+     public Anime(String nome, String tipo, int episodios, String genero, String estudio, String personPrincipal, String antagonista) {
+          this(nome, tipo, episodios, genero, estudio, personPrincipal);
+          this.antagonista = antagonista;
+     }
+
      
      
      public void imprime() {
@@ -34,6 +41,7 @@ public class Anime {
           System.out.println(this.genero);
           System.out.println(this.estudio);
           System.out.println(this.personPrincipal);
+          System.out.println(this.antagonista);
      }
      
      public String getTipo() {
@@ -72,5 +80,21 @@ public class Anime {
 
      public void setEstudio(String estudio) {
           this.estudio = estudio;
+     }
+
+     public String getPersonPrincipal() {
+          return personPrincipal;
+     }
+
+     public void setPersonPrincipal(String personPrincipal) {
+          this.personPrincipal = personPrincipal;
+     }
+
+     public String getAntagonista() {
+          return antagonista;
+     }
+
+     public void setAntagonista(String antagonista) {
+          this.antagonista = antagonista;
      }
 }

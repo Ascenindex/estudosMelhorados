@@ -9,5 +9,9 @@ public class AnimeTeste01 {
           System.out.println("--------------------------------");
           Anime anime2 = new Anime("One Piece", "Manga", 160, "Shounen", "Manga", "lippo");
           anime2.imprime();
+
+          System.out.println("--------------------------------");
+          Anime anime3 = new Anime("Naruto", "Manga", 220, "Shounen", "Manga", "Hinata", "Kakashi");
+          anime3.imprime();
      }
 }
